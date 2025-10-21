@@ -1,0 +1,25 @@
+# Terminal Environment Changes
+
+## Extension: vscode.git
+
+Enables the following features: git auth provider
+
+- `GIT_ASKPASS=c:\Users\Admin\AppData\Local\Programs\Windsurf\resources\app\extensions\git\dist\askpass.sh`
+- `VSCODE_GIT_ASKPASS_NODE=C:\Users\Admin\AppData\Local\Programs\Windsurf\Windsurf.exe`
+- `VSCODE_GIT_ASKPASS_EXTRA_ARGS=`
+- `VSCODE_GIT_ASKPASS_MAIN=c:\Users\Admin\AppData\Local\Programs\Windsurf\resources\app\extensions\git\dist\askpass-main.js`
+- `VSCODE_GIT_IPC_HANDLE=\\.\pipe\vscode-git-ad0632484f-sock`
+
+## Extension: ms-python.debugpy
+
+Enables use of [no-config debugging](https://github.com/microsoft/vscode-python-debugger/wiki/No%E2%80%90Config-Debugging), `debugpy <script.py>`, in the terminal.
+
+- `PYDEVD_DISABLE_FILE_VALIDATION=1`
+- `VSCODE_DEBUGPY_ADAPTER_ENDPOINTS=c:\Users\Admin\.windsurf\extensions\ms-python.debugpy-2025.10.0-win32-x64\.noConfigDebugAdapterEndpoints\endpoint-4fa375fc92caac9e.txt`
+- `PATH=${env:PATH};c:\Users\Admin\.windsurf\extensions\ms-python.debugpy-2025.10.0-win32-x64\bundled\scripts\noConfigScripts`
+- `BUNDLED_DEBUGPY_PATH=c:\Users\Admin\.windsurf\extensions\ms-python.debugpy-2025.10.0-win32-x64\bundled\libs\debugpy`
+
+## Extension: ms-python.python
+
+- `PYTHONSTARTUP=c:\Users\Admin\AppData\Roaming\Windsurf\User\workspaceStorage\9938a7995eb4b4cb999469b3840b4d5a\ms-python.python\pythonrc.py`
+- `PYTHON_BASIC_REPL=1`
