@@ -27,7 +27,8 @@ frontend_url = settings.frontend_url if hasattr(settings, 'frontend_url') else "
 allowed_origins = [
     "http://localhost:3000",
     "http://localhost:3001",
-    frontend_url
+    frontend_url,
+    "https://frontendbakery-1.onrender.com"  # Render frontend URL
 ]
 
 app.add_middleware(
