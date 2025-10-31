@@ -25,10 +25,9 @@ app = FastAPI(
 # In production, set FRONTEND_URL environment variable
 frontend_url = settings.frontend_url if hasattr(settings, 'frontend_url') else "http://localhost:3000"
 allowed_origins = [
-    "http://localhost:3000",
-    "http://localhost:3001",
     frontend_url,
-    "https://frontendbakery-1.onrender.com"  # Render frontend URL
+    "https://frontendbakery-1.onrender.com",  # Frontend Render URL
+    "https://bakerybackend-kpow.onrender.com"  # Backend Render URL
 ]
 
 app.add_middleware(

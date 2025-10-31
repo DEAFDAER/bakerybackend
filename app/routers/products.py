@@ -352,3 +352,29 @@ async def get_all_products(
         return products
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+@router.get("/baker/me", response_model=List[ProductResponse])
+async def get_my_products(current_user=Depends(get_current_user_token), db=Depends(get_db)):
+    """Get all products created by the logged-in baker"""
+    if not current_user or current_user.get("role") != "baker":
+        raise HTTPException(status_code=403, detail="Not authorized")
+
+    email = current_user["email"]
+    result = db.run("""
+        MATCH (b:User {email: $email})-[:BAKES]->(p:Product)
+        RETURN p ORDER BY p.created_at DESC
+    """, email=email)
+
+    products = []
+    for record in result:
+        p = record["p"]
+        products.append(ProductResponse(
+            id=str(p.element_id),
+            name=p["name"],
+            description=p.get("description"),
+            price=p["price"],
+            stock_quantity=p["stock_quantity"],
+            is_available=p["is_available"],
+            created_at=str(p["created_at"])
+        ))
+    return products
